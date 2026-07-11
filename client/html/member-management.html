@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Member Management</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="administration-dashboard.html"><span class="gold-text">✦ First Love Church</span></a></li>
+            <li><a href="administration-dashboard.html">⚙️ Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <h1>Member Management</h1>
+
+    <div class="top-bar">
+        <input type="text" id="member-search" placeholder="Search Members">
+        <button id="add-member-btn">Add Member</button>
+    </div>
+
+    <div class="stats-container">
+        <div class="stat-card">
+            <h3>Total Members</h3>
+            <p id="total-members">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>GSU Members</h3>
+            <p id="gsu-members">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Georgia Tech Members</h3>
+            <p id="gtech-members">0</p>
+        </div>
+    </div>
+
+    <div class="profiles-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Branch</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="member-body"></tbody>
+        </table>
+    </div>
+
+    <div class="button-container">
+        <button id="back-btn">Back</button>
+    </div>
+
+    <div id="add-member-modal" class="edit-modal">
+        <div class="edit-modal-content">
+            <h2>Add Member</h2>
+            
+            <label for="member-first-name">First Name</label>
+            <input id="member-first-name" type="text">
+            
+            <label for="member-last-name">Last Name</label>
+            <input id="member-last-name" type="text">
+            
+            <label for="member-branch">Branch</label>
+            <select id="member-branch">
+                <option value="">Select Branch</option>
+                <option value="GSU">GSU</option>
+                <option value="Georgia Tech">Georgia Tech</option>
+            </select>
+
+            <label for="member-phone">Phone</label>
+            <input id="member-phone" type="text">
+            
+            <label for="member-email">Email</label>
+            <input id="member-email" type="email">
+            
+            <label for="member-dob">Date of Birth</label>
+            <input id="member-dob" type="date">
+            
+            <div class="modal-buttons">
+                <button id="cancel-add-member">Cancel</button>
+                <button id="save-member">Save Member</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="profile-modal" class="edit-modal">
+        <div class="edit-modal-content">
+            <h2 id="profile-name">Member Profile</h2>
+            <div id="profile-content"></div>
+            <div class="modal-buttons">
+                <button id="close-profile">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-member-modal" class="edit-modal">
+        <div class="edit-modal-content">
+            <h2>Edit Member</h2>
+            
+            <label for="edit-first-name">First Name</label>
+            <input id="edit-first-name" type="text">
+
+            <label for="edit-last-name">Last Name</label>
+            <input id="edit-last-name" type="text">
+
+            <label for="edit-branch">Branch</label>
+            <select id="edit-branch">
+                <option value="GSU">GSU</option>
+                <option value="Georgia Tech">Georgia Tech</option>
+            </select>
+
+            <label for="edit-phone">Phone</label>
+            <input id="edit-phone" type="text">
+
+            <label for="edit-email">Email</label>
+            <input id="edit-email" type="email">
+
+            <label for="edit-dob">Date of Birth</label>
+            <input id="edit-dob" type="date">
+
+            <div class="modal-buttons">
+                <button id="cancel-edit-member">Cancel</button>
+                <button id="save-edit-member">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="delete-member-modal" class="edit-modal">
+        <div class="edit-modal-content">
+            <h2>Delete Member</h2>
+            <p id="delete-member-message"></p>
+            <div class="modal-buttons">
+                <button id="cancel-delete-member">Cancel</button>
+                <button id="confirm-delete-member">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="trend-modal" class="edit-modal">
+        <div class="edit-modal-content">
+            <h2 id="trend-name">Attendance Trend</h2>
+
+            <canvas id="attendance-chart" width="400" height="200"></canvas>
+
+            <div id="trend-content"></div>
+
+            <div class="modal-buttons">
+                <button id="close-trend">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js-scripts/member-management.js"></script>
+</body>
+</html>

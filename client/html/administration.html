@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administration</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header class="mobile-header">
+        <button id="menu-btn">☰</button>
+        <h3 class="mobile-title">✦ First Love Church</h3>
+    </header>
+
+    <nav id="mobile-nav">
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="attendance.html">📋 Attendance</a></li>
+            <li><a href="profile.html">👥 Member Profiles</a></li>
+            <li><a href="administration.html" class="active">⚙️ Admin</a></li>
+        </ul>
+    </nav>
+
+    <p class="admin-message">Authorized administrators only.</p>
+
+    <div class="admin-container">
+
+        <label for="username">Username</label>
+        <input id="username" type="text" placeholder="Enter username">
+
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Enter password">
+
+        <button id="login-btn">Login</button>
+
+        <p id="login-message"></p>
+
+        <a href="#" id="forgot-password" class="forgot-password">Forgot Password?</a>
+
+        <p id="forgot-message"></p>
+    </div>
+
+    <div class="ownership-bar">
+        <span>© 2026 First Love Church Atlanta. All Rights Reserved.</span>
+        <span>pamelakyei15@gmail.com</span>
+    </div>
+
+    <script src="../js-scripts/administration.js"></script>
+
+</body>
+</html>

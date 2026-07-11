@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Member Profile</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+    <header class="mobile-header">
+        <button id="menu-btn">☰</button>
+        <h3 class="mobile-title">✦ First Love Church</h3>
+    </header>
+
+    <nav id="mobile-nav">
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="attendance.html">📋 Attendance</a></li>
+            <li><a href="profile.html" class="active">👥 Member Profiles</a></li>
+            <li><a href="administration.html">⚙️ Admin</a></li>
+        </ul>
+    </nav>
+
+    <h1>Member Profile</h1>
+
+    <p style="text-align: center;">View and manage your member profile information below.</p>
+
+    <div class="top-bar">
+        <div class="search-container">
+            <input type="text" id="member-search" placeholder="Search by name or branch...">
+        </div>
+
+        <button id="add-member-btn">Add Member</button>
+    </div>
+
+    <p class="admin-note">Click a member's first name to view their profile (Admin access required).</p>
+
+    <div class="profiles-container">
+        <table id="member-table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Branch</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Date of Birth</th>
+                </tr>
+            </thead>
+
+            <tbody id="member-body"></tbody>
+        </table>
+    </div>
+
+    <div id="member-modal" class="edit-modal">
+        <div class="edit-modal-content">
+            <h2>Add Member</h2>
+            
+            <label for="member-first-name">First Name</label>
+            <input id="member-first-name" type="text">
+
+            <label for="member-last-name">Last Name</label>
+            <input id="member-last-name" type="text">
+
+            <label for="member-branch">Branch</label>
+            <select id="member-branch">
+                <option value="">Select Branch</option>
+                <option value="GSU">GSU</option>
+                <option value="Georgia Tech">Georgia Tech</option>
+            </select>
+
+            <label for="member-phone">Phone Number</label>
+            <input id="member-phone" type="text">
+
+            <label for="member-email">Email</label>
+            <input id="member-email" type="email">
+
+            <label for="member-dob">Date of Birth</label>
+            <input id="member-dob" type="date">
+
+            <div class="modal-buttons">
+                <button id="cancel-member">Cancel</button>
+                <button id="save-member">Save Member</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="ownership-bar">
+        <span>© 2026 First Love Church Atlanta. All Rights Reserved.</span>
+        <span>pamelakyei15@gmail.com</span>
+    </div>
+
+    <script src="../js-scripts/profile.js"></script>
+
+</body>
+</html>

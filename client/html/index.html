@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header class="mobile-header">
+        <button id="menu-btn">☰</button>
+        <h3 class="mobile-title">✦ First Love Church</h3>
+    </header>
+
+    <nav id="mobile-nav">
+        <ul>
+            <li><a href="index.html" class="active">🏠 Home</a></li>
+            <li><a href="attendance.html">📋 Attendance</a></li>
+            <li><a href="profile.html">👥 Member Profiles</a></li>
+            <li><a href="administration.html">⚙️ Admin</a></li>
+        </ul>
+    </nav>
+
+    <div class="location-wrap">
+        <div class="location">
+            <button id="location-btn">ATLANTA, GEORGIA</button>
+        </div>
+    </div>
+
+    <h1 class="black-text">Welcome to First Love Atlanta</h1>
+
+    <p class="scripture">"And above all things have fervent love for one another." - 1 Peter 4:8</p>
+
+    <form class="branch-selection-form" onsubmit="return false;">
+        <h4>Choose a branch</h4>
+
+        <div class="branch">
+            <label class="school-option gsu">
+                <input type="radio" name="school" value="GSU" required>
+                <img src="../images/gsu.png" alt="GSU Logo">
+            </label>
+
+            <label class="school-option gtech">
+                <input type="radio" name="school" value="Georgia Tech">
+                <img src="../images/gtech.png" alt="Georgia Tech Logo">
+            </label>
+        </div>
+
+        <h4 id="selected-branch-message"></h4>
+        
+        <div class="continue-container">
+            <button id="continue-btn" type="submit">Continue</button>
+        </div>
+    </form>
+
+    <div class="ownership-bar">
+        <span>© 2026 First Love Church Atlanta. All Rights Reserved.</span>
+        <span>pamelakyei15@gmail.com</span>
+    </div>
+
+    <script src="../js-scripts/index.js"></script>
+</body>
+</html>

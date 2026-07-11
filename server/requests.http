@@ -1,0 +1,33 @@
+GET http://localhost:5000/members
+
+###
+
+POST http://localhost:5000/members
+Content-Type: application/json
+
+{
+    "firstName": "John", 
+    "lastName": "Doe",
+    "branch": "GSU",
+    "phoneNumber": "4702536627",
+    "email": "pamelakyei15@gmail.com",
+    "dateOfBirth": "2007-02-02"
+}
+
+###
+
+PUT http://localhost:5000/members/1
+Content-Type: application/json
+
+{
+    "firstName": "John",
+    "lastName": "Smith",
+    "branch": "Georgia Tech",
+    "phoneNumber": "4701111111",
+    "email": "johnsmith@gmail.com",
+    "dateOfBirth": "2000-01-01"
+}
+
+###
+
+DELETE http://localhost:5000/members/1
