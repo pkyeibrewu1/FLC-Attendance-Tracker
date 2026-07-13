@@ -746,8 +746,11 @@ h1 {
         gap: 15px;
     }
     form {
-        padding: 200px; /* Added semicolon */
+        padding: 20px 10px !important; 
+        width: 100%;
+        box-sizing: border-box;
     }
+
     .stat-card {
         width: 100%;
     }
@@ -798,8 +801,13 @@ h1 {
     }
     .branch {
         flex-direction: column !important;
-        gap: 20px !important;
+        gap: 15px !important;
+        margin-bottom: 20px;
     } 
+    html, body {
+        height: auto !important;
+        min-height: 100%;
+    }
     .mobile-header {
         display: flex;
         align-items: center;
