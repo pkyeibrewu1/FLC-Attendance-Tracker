@@ -24,7 +24,7 @@ let memberProfiles = [];
 // Display all saved members when the page loads
 async function loadMembers() {
     try {
-        const response = await fetch("http://localhost:5000/members");
+        const response = await fetch("https://flc-attendance-tracker.onrender.com/members");
         memberProfiles = await response.json();
         displayMembers(memberProfiles);
     } catch (error) {
@@ -76,7 +76,7 @@ if (saveMember) {
             dateOfBirth: dob
         };
 
-        fetch("http://localhost:5000/members", {
+        fetch("https://flc-attendance-tracker.onrender.com/members", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

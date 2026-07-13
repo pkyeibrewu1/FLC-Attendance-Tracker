@@ -47,7 +47,7 @@ let attendanceInfos = [];
 // Retrieve attendance records from local storage API
 async function loadAttendance() {
     try {
-        const response = await fetch("http://localhost:5000/attendance");
+        const response = await fetch("https://flc-attendance-tracker.onrender.com/attendance");
         attendanceInfos = await response.json();
         loadBranches();
         applyFilters();
@@ -166,7 +166,7 @@ saveEdit.addEventListener("click", async () => {
     record.firstTimer = editFirstTimer.value;
 
     try {
-        await fetch(`http://localhost:5000/attendance/${record.id}`, {
+        await fetch(`https://flc-attendance-tracker.onrender.com/attendance/${record.id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(record)
@@ -272,7 +272,7 @@ confirmDelete.addEventListener("click", async () => {
     if (!recordIdToDelete) return;
 
     try {
-        await fetch(`http://localhost:5000/attendance/${recordIdToDelete}`, {
+        await fetch(`https://flc-attendance-tracker.onrender.com/attendance/${recordIdToDelete}`, {
             method: "DELETE"
         });
         loadAttendance();

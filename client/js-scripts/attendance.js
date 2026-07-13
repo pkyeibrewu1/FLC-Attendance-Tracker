@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function loadAttendance() {
         try {
-            const response = await fetch("http://localhost:5000/attendance");
+            const response = await fetch("https://flc-attendance-tracker.onrender.com/attendance");
             attendanceInfos = await response.json();
         } catch (error) {
             console.error("Failed to sync attendance records database:", error);
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // Fire post request payload down API pipeline
-        fetch("http://localhost:5000/attendance", {
+        fetch("https://flc-attendance-tracker.onrender.com/attendance", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

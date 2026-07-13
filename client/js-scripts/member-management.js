@@ -60,7 +60,7 @@ let trackedDisplayList = []; // Track exactly what is shown on screen to prevent
 
 async function loadMembers() {
     try {
-        const response = await fetch("http://localhost:5000/members");
+        const response = await fetch("https://flc-attendance-tracker.onrender.com/members");
         memberProfiles = await response.json();
         displayMembers(memberProfiles);
         updateStats();
@@ -207,7 +207,7 @@ saveEditMember.addEventListener("click", async () => {
     member.email = editEmail.value;
     member.dateOfBirth = editDob.value;
 
-    await fetch(`http://localhost:5000/members/${member.id}`, {
+    await fetch(`https://flc-attendance-tracker.onrender.com/members/${member.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(member)
@@ -221,7 +221,7 @@ saveEditMember.addEventListener("click", async () => {
 confirmDeleteMember.addEventListener("click", async () => {
     const member = memberProfiles[currentDeleteIndex];
 
-    await fetch(`http://localhost:5000/members/${member.id}`, {
+    await fetch(`https://flc-attendance-tracker.onrender.com/members/${member.id}`, {
         method: "DELETE"
     });
 
@@ -242,7 +242,7 @@ saveMember.addEventListener("click", () => {
         dateOfBirth: memberDob.value
     };
     
-    fetch("http://localhost:5000/members", {
+    fetch("https://flc-attendance-tracker.onrender.com/members", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(member)
