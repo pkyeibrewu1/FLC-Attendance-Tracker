@@ -3,31 +3,35 @@ const loginButton = document.getElementById("login-btn");
 const loginMessage = document.getElementById("login-message");
 
 // Verify the administrator's login credentials
-loginButton.addEventListener("click", () => {
-    // Get the username and password entered by the user (with whitespace trimmed)
+loginButton.addEventListener("click", async () => {
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value;
-    
-    // Administrator login credentials
-    const adminUsername = "FLC Atlanta";
-    const adminPassword = "1234@FLC26";
-    
-    // Check if the login credentials are correct
-    if (username === adminUsername && password === adminPassword) {
-        // Save the administrator's login status
-        localStorage.setItem("adminLoggedIn", "true");
-        
-        // Display a successful login message
-        loginMessage.textContent = "Password Correct!";
-        loginMessage.style.color = "green";
-        
-        // Redirect to the administration dashboard after 1 second
-        setTimeout(() => {
-            window.location.href = "administration-dashboard.html"; 
-        }, 1000);
-    } else {
-        // Display an error message if the login fails
-        loginMessage.textContent = "Invalid username or password.";
+
+    try {
+        const response = await fetch("http://localhost:5000/admin/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            localStorage.setItem("adminLoggedIn", "true");
+            loginMessage.textContent = "Login successful!";
+            loginMessage.style.color = "green";
+
+            setTimeout(() => {
+                window.location.href = "administration-dashboard.html";
+            }, 1000);
+        } else {
+            loginMessage.textContent = data.message || "Invalid username or password.";
+            loginMessage.style.color = "red";
+        }
+    } catch (error) {
+        loginMessage.textContent = "Unable to reach the server.";
         loginMessage.style.color = "red";
     }
 });

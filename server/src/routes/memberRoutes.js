@@ -1,5 +1,6 @@
 import express from 'express';
 import prisma from "../db.js"
+import { hashPassword } from '../utils/password.js';
 const router = express.Router();
 
 router.get("/", async (req,res) => {
@@ -8,18 +9,28 @@ router.get("/", async (req,res) => {
 })
 
 router.post("/", async (req,res) => {
+    const data = { ...req.body };
+    if (data.password) {
+        data.password = await hashPassword(data.password);
+    }
+
     const member = await prisma.member.create({
-        data: req.body
+        data
     })
     res.status(201).json(member)
 })
 
 router.put("/:id", async (req, res) => {
+    const data = { ...req.body };
+    if (data.password) {
+        data.password = await hashPassword(data.password);
+    }
+
     const member = await prisma.member.update({
         where: {
             id: Number(req.params.id)
         },  
-        data: req.body
+        data
     })
     res.json(member)
 })

@@ -20,6 +20,7 @@ model Member {
   phoneNumber       String
   email             String
   dateOfBirth       String
+  password          String
 }
 
 model Attendance {
@@ -30,3 +31,4 @@ model Attendance {
   date              String
   firstTimer        String
 }
+

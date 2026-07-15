@@ -1,7 +1,9 @@
+import 'dotenv/config';
 import express from 'express'
 import memberRoutes from './routes/memberRoutes.js'
 import  cors from "cors"
 import attendanceRoutes from "./routes/attendanceRoutes.js"
+import adminRoutes from './routes/adminRoutes.js'
 
 const app = express();
 app.use(cors())
@@ -15,6 +17,7 @@ app.get("/", (req,res) => {
 
 app.use("/members", memberRoutes);
 app.use("/attendance", attendanceRoutes)
+app.use("/admin", adminRoutes)
 
 app.listen(PORT, () => {
     console.log(`Server running on PORT ${PORT}`);
