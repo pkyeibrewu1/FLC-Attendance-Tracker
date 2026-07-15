@@ -6,7 +6,7 @@ const router = express.Router();
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'FLC Atlanta';
 const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH;
 
-router.post('/login', async (req, res) => {
+const handleAdminLogin = async (req, res) => {
   const { username, password } = req.body || {};
 
   if (!username || !password) {
@@ -25,6 +25,9 @@ router.post('/login', async (req, res) => {
   }
 
   return res.json({ success: true, message: 'Login successful.' });
-});
+};
+
+router.post('/', handleAdminLogin);
+router.post('/login', handleAdminLogin);
 
 export default router;

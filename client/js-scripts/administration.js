@@ -8,15 +8,32 @@ loginButton.addEventListener("click", async () => {
     const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch("https://flc-attendance-tracker.onrender.com/admin/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ username, password })
-        });
+        const urls = [
+            "https://flc-attendance-tracker.onrender.com/admin/login",
+            "https://flc-attendance-tracker.onrender.com/admin"
+        ];
 
-        const data = await response.json();
+        let response;
+        let data;
+
+        for (const url of urls) {
+            response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ username, password })
+            });
+
+            if (response.status !== 404) {
+                data = await response.json();
+                break;
+            }
+        }
+
+        if (!response) {
+            throw new Error("No response from the server.");
+        }
 
         if (response.ok) {
             localStorage.setItem("adminLoggedIn", "true");
