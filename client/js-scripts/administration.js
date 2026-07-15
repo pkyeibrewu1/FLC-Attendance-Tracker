@@ -8,7 +8,7 @@ loginButton.addEventListener("click", async () => {
     const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch("https://flc-attendance-tracker.onrender.com/admin", {
+        const response = await fetch("https://flc-attendance-tracker.onrender.com/admin/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
