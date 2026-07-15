@@ -63,7 +63,7 @@ Make sure you have installed:
 
 1. Clone the repository
 ```
-git clone <repository-url>
+git clone [<repository-url>](https://github.com/pkyeibrewu1/FLC-Attendance-Tracker.git)
 cd FLC-Attendance-Tracker-main
 ```
 2. Install server dependencies
@@ -106,6 +106,7 @@ The backend exposes these routes:
 The Prisma schema defines:
 - Member
 - Attendance
+  
 Run Prisma migrations as needed for your PostgreSQL setup.
 
 ## License
