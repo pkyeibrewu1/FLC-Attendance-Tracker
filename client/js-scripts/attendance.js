@@ -14,12 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Get today's date in YYYY-MM-DD format
     const today = new Date().toISOString().split("T")[0];
 
+    // Determine API base URL depending on environment (local vs deployed)
+    const API_BASE = window.location.hostname.includes("localhost")
+        ? "http://localhost:5000"
+        : "https://flc-attendance-tracker.onrender.com";
+
     // Load previously saved attendance records master array variable
     let attendanceInfos = [];
 
     async function loadAttendance() {
         try {
-            const response = await fetch("https://flc-attendance-tracker.onrender.com/attendance");
+            const response = await fetch(`${API_BASE}/attendance`);
             attendanceInfos = await response.json();
         } catch (error) {
             console.error("Failed to sync attendance records database:", error);
@@ -111,15 +116,18 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // Fire post request payload down API pipeline
-        fetch("https://flc-attendance-tracker.onrender.com/attendance", {
+        fetch(`${API_BASE}/attendance`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(attendanceInfo)
         })
-        .then(response => {
-            if (!response.ok) throw new Error("Network request database sync error.");
+        .then(async response => {
+            if (!response.ok) {
+                const text = await response.text().catch(() => null);
+                throw new Error(text || response.statusText || "Network request database sync error.");
+            }
             return response.json();
         })
         .then(() => {
@@ -128,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => {
             console.error("Submission failed:", error);
-            responseMessage.textContent = "Failed to log check-in. Please try again.";
+            responseMessage.textContent = `Failed to log check-in: ${error.message}`;
             responseMessage.style.color = "red";
         });
     });
